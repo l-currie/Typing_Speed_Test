@@ -3,7 +3,7 @@
 // (powered by FernFlower decompiler)
 //
 
-package sample.Model;
+package Model;
 
 import java.util.Random;
 
@@ -35,35 +35,13 @@ public class TypingTest {
 
     public TypingTest(String mode) {
         Random rand = new Random();
-        byte var4 = -1;
-        switch(mode.hashCode()) {
-            case -1078030475:
-                if (mode.equals("medium")) {
-                    var4 = 1;
-                }
-                break;
-            case 3327612:
-                if (mode.equals("long")) {
-                    var4 = 2;
-                }
-                break;
-            case 109413500:
-                if (mode.equals("short")) {
-                    var4 = 0;
-                }
+        if (mode.equals("short")) {
+            words = shortPhrases[rand.nextInt(4)];
+        } else if (mode.equals("medium")) {
+            words = mediumPhrases[rand.nextInt(4)];
+        } else if (mode.equals("long")) {
+            words = longPhrases[rand.nextInt(4)];
         }
-
-        switch(var4) {
-            case 0:
-                this.words = this.shortPhrases[rand.nextInt(4)];
-                break;
-            case 1:
-                this.words = this.mediumPhrases[rand.nextInt(4)];
-                break;
-            case 2:
-                this.words = this.longPhrases[rand.nextInt(4)];
-        }
-
     }
 
     private void calculateWPM() {
@@ -75,25 +53,34 @@ public class TypingTest {
     }
 
     private void calculateAccuracy() {
-        float correct = 0.0F;
-        float wrong = 0.0F;
-        long spaces = this.rawInput.chars().filter((cx) -> {
-            return cx == 32;
-        }).count();
-        wrong = (float)(spaces - (long)(this.words.length - 1));
-        this.rawInput = this.rawInput.trim().replaceAll(" +", " ");
-        this.typedWords = this.rawInput.split(" ");
+        float correct = 0, wrong = 0;
+        //basic accuracy, checks to see if each element in string[]'s are equal.
+        //checks character-wise, accounts for extra / missing characters as well with diff of lengths.
 
-        for(int i = 0; i < this.words.length; ++i) {
-            wrong += (float)Math.abs(this.typedWords[i].length() - this.words[i].length());
+        //to account for excess spaces, we can count number of spaces, subtract by (words.length -1)
+        // to get the amount of spaces in solution, and then add # excess to errors.
+        long spaces = rawInput.chars().filter(c -> c == (int) ' ').count();  //counts # of spaces
+        // System.out.println("\n-------------------------------\n");
+        // System.out.println("spaces: " + spaces);
+        wrong = (spaces - (words.length - 1));
+        // System.out.println("# of wrong spaces: " + wrong);
 
-            for(int c = 0; c < Math.min(this.words[i].length(), this.typedWords[i].length()); ++c) {
-                String testChar = this.words[i].substring(c, c + 1);
-                String typedChar = this.typedWords[i].substring(c, c + 1);
+
+        // System.out.println("raw input untrimmed:   " + rawInput);
+        this.rawInput = rawInput.trim().replaceAll(" +", " ");  //removes excess spaces only
+        // System.out.println("raw input trimmed:     " + rawInput);
+        this.typedWords = rawInput.split(" ");
+
+        for (int i = 0; i < words.length; i++) {
+            wrong += Math.abs(typedWords[i].length() - words[i].length()); // adds diff of lengths to wrong
+            // this loop compares each char to see if right or wrong,
+            for (int c = 0; c < Math.min((words[i].length()), typedWords[i].length()); c++) {
+                String testChar = words[i].substring(c, c + 1);
+                String typedChar = typedWords[i].substring(c, c + 1);
                 if (testChar.equals(typedChar)) {
-                    ++correct;
+                    correct++;
                 } else {
-                    ++wrong;
+                    wrong++;
                 }
             }
         }
