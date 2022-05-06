@@ -1,4 +1,4 @@
-# Typing_Test
+# Typing_Speed_Test
 
 This repo is specifically for the GUI version.   
 ---
