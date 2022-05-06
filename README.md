@@ -1,6 +1,7 @@
 # Typing_Test
 
-# This repo is specifically for the GUI version.   
+This repo is specifically for the GUI version.   
+---
 Typing_Test repo is for the console version.
 
 ###
