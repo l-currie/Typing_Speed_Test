@@ -1,6 +1,7 @@
 # Typing_Test
 
-# This repo is new, specifically for the version with GUI.   Typing_Test repo is for the console version.
+# This repo is specifically for the GUI version.   
+Typing_Test repo is for the console version.
 
 ###
 Simple typing test made in Java.  End goal with this project is to learn and get comfortable with JavaFX & CSS by making a modern GUI.
