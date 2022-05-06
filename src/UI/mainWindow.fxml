@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="256.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controller">
+    <center>
+        <Text fx:id="textToType" boundsType="LOGICAL_VERTICAL_CENTER" stroke="BLACK" strokeWidth="0.0" text="This is the Text you need to type" textAlignment="CENTER" wrappingWidth="600.0" BorderPane.alignment="TOP_CENTER">
+            <BorderPane.margin>
+                <Insets left="100.0" right="100.0" top="50.0" />
+            </BorderPane.margin>
+            <font>
+                <Font name="Consolas" size="22.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="DEFAULT" />
+            </cursor>
+        </Text>
+    </center>
+    <top>
+        <HBox BorderPane.alignment="CENTER">
+            <children>
+                <HBox HBox.hgrow="ALWAYS">
+                    <children>
+                        <RadioButton fx:id="thirty" mnemonicParsing="false" onAction="#onRadioButton" text="30 Words">
+                            <padding>
+                                <Insets bottom="4.0" left="8.0" right="4.0" top="4.0" />
+                            </padding>
+                            <toggleGroup>
+                                <ToggleGroup fx:id="toggleGroup" />
+                            </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="sixty" mnemonicParsing="false" onAction="#onRadioButton" text="60 Words" toggleGroup="$toggleGroup">
+                            <padding>
+                                <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                            </padding>
+                        </RadioButton>
+                        <RadioButton fx:id="shrt" mnemonicParsing="false" onAction="#onRadioButton" text="Short " toggleGroup="$toggleGroup">
+                            <padding>
+                                <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                            </padding>
+                        </RadioButton>
+                        <RadioButton fx:id="med" mnemonicParsing="false" onAction="#onRadioButton" text="Medium" toggleGroup="$toggleGroup">
+                            <padding>
+                                <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                            </padding>
+                        </RadioButton>
+                        <RadioButton fx:id="lng" mnemonicParsing="false" onAction="#onRadioButton" text="Long" toggleGroup="$toggleGroup">
+                            <padding>
+                                <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                            </padding>
+                        </RadioButton>
+                        <RadioButton fx:id="ran" mnemonicParsing="false" onAction="#onRadioButton" text="Random" toggleGroup="$toggleGroup">
+                            <padding>
+                                <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                            </padding>
+                        </RadioButton>
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Button mnemonicParsing="false" onAction="#onStartButton" text="Start">
+                            <HBox.margin>
+                                <Insets right="8.0" top="4.0" />
+                            </HBox.margin>
+                        </Button>
+                    </children>
+                </HBox>
+            </children>
+            <BorderPane.margin>
+                <Insets />
+            </BorderPane.margin>
+        </HBox>
+    </top>
+    <bottom>
+        <VBox maxHeight="-Infinity" prefHeight="74.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+            <children>
+                <TextField fx:id="userText" onKeyPressed="#handleKeyPress">
+                    <font>
+                        <Font name="Consolas" size="16.0" />
+                    </font>
+                    <VBox.margin>
+                        <Insets left="8.0" right="8.0" />
+                    </VBox.margin>
+                </TextField>
+                <HBox prefHeight="40.0" prefWidth="600.0" spacing="20.0">
+                    <children>
+                        <Label fx:id="wpmLabel" styleClass="stats" text="WPM: ">
+                            <padding>
+                                <Insets left="8.0" />
+                            </padding>
+                        </Label>
+                        <Label fx:id="accLabel" styleClass="stats" text="Accuracy:" />
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </bottom>
+</BorderPane>
