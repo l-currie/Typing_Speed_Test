@@ -13,7 +13,7 @@ I also want to get better at using JSON and making data persistent.
 Add more premade phrases  
 Add a few more modes (lyrics, quotes)  
 
-Let user input custom text for practicing
+
 Add persistence (tracking stats such as average of last 10, number of times practiced for each mode)
 
 Create a custom theme using css
@@ -21,6 +21,7 @@ Have some user customizability in the ui (color pickers for text / background)
 
   
 ---- COMPLETED ----  
+Let user input custom text for practicing    05/10
 Basic functional GUI
 Gross WPM calculation  
 Basic accuracy calculation  
