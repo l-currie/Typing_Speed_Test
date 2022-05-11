@@ -6,8 +6,10 @@
 package Model;
 
 import java.util.Random;
+import Model.WordSet;
 
 public class TypingTest {
+    private WordSet wordSet;
     private String[] words;
     private String[] typedWords;
     private double startTime;
@@ -27,7 +29,7 @@ public class TypingTest {
         Random rand = new Random();
         this.words = new String[numWords];
 
-        for(int i = 0; i < numWords; ++i) {
+        for (int i = 0; i < numWords; ++i) {
             this.words[i] = this.most_common_words[rand.nextInt(999)];
         }
 
@@ -46,10 +48,10 @@ public class TypingTest {
 
     private void calculateWPM() {
         this.elapsedTime = (this.endTime - this.startTime) / 1000.0D;
-        this.grossWPM = (double)this.rawInput.length() / 5.0D / this.elapsedTime * 60.0D;
-        this.netWPM = ((double)this.rawInput.length() - (double)this.errors) / 5.0D / this.elapsedTime * 60.0D;
-        this.grossWPM = (double)Math.round(this.grossWPM * 100.0D) / 100.0D;
-        this.netWPM = (double)Math.round(this.netWPM * 100.0D) / 100.0D;
+        this.grossWPM = (double) this.rawInput.length() / 5.0D / this.elapsedTime * 60.0D;
+        this.netWPM = ((double) this.rawInput.length() - (double) this.errors) / 5.0D / this.elapsedTime * 60.0D;
+        this.grossWPM = (double) Math.round(this.grossWPM * 100.0D) / 100.0D;
+        this.netWPM = (double) Math.round(this.netWPM * 100.0D) / 100.0D;
     }
 
     private void calculateAccuracy() {
@@ -87,7 +89,7 @@ public class TypingTest {
 
         this.errors = wrong;
         this.accuracy = correct / (correct + wrong);
-        this.accuracy = (float)Math.round(this.accuracy * 100.0F);
+        this.accuracy = (float) Math.round(this.accuracy * 100.0F);
     }
 
     public String[] getWords() {
@@ -168,6 +170,15 @@ public class TypingTest {
 
     public void setElapsedTime(double elapsedTime) {
         this.elapsedTime = elapsedTime;
+    }
+
+    public void setWordSet(WordSet ws){
+        this.wordSet = ws;
+        this.words = this.wordSet.getWordArr();
+    }
+
+    public WordSet getWordSet(){
+        return this.wordSet;
     }
 
     public void updateStats() {
