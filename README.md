@@ -16,11 +16,12 @@ Add a few more modes (lyrics, quotes)
 
 Add persistence (tracking stats such as average of last 10, number of times practiced for each mode)
 
-Create a custom theme using css
+
 Have some user customizability in the ui (color pickers for text / background)
 
   
 ---- COMPLETED ----  
+Create a custom theme using css    05/12
 Let user input custom text for practicing    05/10
 Basic functional GUI
 Gross WPM calculation  
