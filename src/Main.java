@@ -12,6 +12,8 @@ public class Main extends Application {
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(root, 1100, 400));
         primaryStage.show();
+        String css = this.getClass().getResource("UI/mainWindow.css").toExternalForm();
+        root.getStylesheets().add(css);
     }
 
 

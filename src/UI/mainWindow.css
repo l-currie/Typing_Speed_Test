@@ -1,0 +1,103 @@
+.root{
+    -fx-background-color: #0f0f0f;
+}
+
+.label {
+    -fx-font-size: 16;
+    -fx-font-family: "Consolas";
+	-fx-text-fill: #ffffff;
+}
+
+#textToType{
+    -fx-fill: #06ad33;
+}
+
+.radio-button {
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 15;
+    -fx-font-family: "Consolas";
+}
+.radio-button:selected .dot{
+    -fx-padding: 5px;
+    -fx-mark-color: #d9d9d9;
+
+}
+
+.radio-button .radio {
+    -fx-border-width: 1px;
+    -fx-border-color: #06ad33;
+    -fx-border-radius: 12px;
+    -fx-background-color: #0f0f0f;
+
+}
+.radio-button:selected .radio {
+    -fx-background-color: #0f0f0f;
+    -fx-background-radius: 8px;
+    -fx-border-width: 1.5px;
+}
+
+.radio-button:selected {
+ -fx-text-fill: #06ad33;
+ -fx-font-size: 15;
+ }
+
+.button {
+    -fx-border-color: #06ad33;
+    -fx-border-radius: 10px;
+    -fx-border-width: 1.5px;
+    -fx-background-color: #0f0f0f;
+    -fx-text-fill: white;
+    -fx-font-family: "Consolas"
+}
+
+.button:hover {
+    -fx-background-color: #06ad33;
+    -fx-text-fill: black;
+    -fx-scale-y: 1.1;
+    -fx-scale-x: 1.1;
+}
+
+#userText {
+    -fx-background-color: black;
+    -fx-text-fill: white;
+    -fx-border-width: 1px;
+    -fx-border-color: #06ad33;
+}
+
+#nameText {
+-fx-background-color: #0f0f0f;
+-fx-text-fill: white;
+-fx-border-width: 1px;
+-fx-border-color: #06ad33;
+}
+
+#comboBox {
+-fx-background-color: #0f0f0f;
+-fx-border-width: 1px;
+-fx-border-color: #06ad33;
+-fx-text-fill: white;
+-fx-font-size: 14;
+}
+
+#comboBox .arrow {
+-fx-border-width: 2px;
+-fx-border-color: #06ad33;
+}
+
+#comboBox .list-cell {
+-fx-background-color: #0f0f0f;
+-fx-text-fill: #06ad33;
+}
+
+#comboBox .list-cell:hover {
+    -fx-background-color:#06ad33;
+    -fx-text-fill: black;
+}
+
+#comboBox .combo-box-popup {
+    -fx-border-color: #06ad33;
+}
+
+#comboBox .combo-box-base {
+    -fx-border-color: #06ad33;
+}
